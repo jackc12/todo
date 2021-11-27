@@ -17,3 +17,37 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
+
+
+
+## Run tests
+`mix test`
+
+
+## Start server locally
+`mix phx.server`
+
+
+## Setup Database
+
+create database
+`initdb todo_dev`
+
+start database
+`pg_ctl -D todo_dev start`
+
+stop database
+`pg_ctl -D todo_dev stop`
+
+create postgres user that can create databases
+`createuser -d postgres`
+
+Create the storage for the given repository.
+`mix ecto.create`
+
+
+## Generate controller, views, and context
+`mix phx.gen.html Todos Todo_repo todos description:string priority:string is_completed:boolean`
+
+Apply Changes to database
+`mix ecto.migrate`
