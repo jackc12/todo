@@ -1,53 +1,32 @@
 # Todo
 
-To start your Phoenix server:
+## Create database and schema for the following table and fields
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+Create database with `initdb todo_dev`
+Start database with `pg_ctl -D todo_dev start`
+Stop database with `pg_ctl -D todo_dev stop`
+Create postgres user allowed to create databases with `createuser -d postgres`
+Create database with with `mix ecto.create`
+Generate controller, views, and context with `mix phx.gen.html Todos Todo_repo todos description:string priority:string is_completed:boolean`
+Migrate your database with `mix ecto.migrate`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## UI
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+Install dependencies with `mix deps.get`
+Run locally with `mix phx.server`
 
-## Learn more
+## Business Rules
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+[It is not permissible to save an item with empty description](https://github.com/jackc12/todo/blob/49a5ef63d3fd6301c94757f0b3f21bd47ae18233/lib/todo/todos/todo_repo.ex#L17)
+[Priority must only allow the values (Low, Medium and High)](https://github.com/jackc12/todo/blob/49a5ef63d3fd6301c94757f0b3f21bd47ae18233/lib/todo/todos/todo_repo.ex#L18)
+[Once an item is completed, it can not be unchecked and marked as not completed](https://github.com/jackc12/todo/blob/49a5ef63d3fd6301c94757f0b3f21bd47ae18233/lib/todo/todos.ex#L84)
 
+## Tests
 
-
-## Run tests
+Run Tests
 `mix test`
 
-
-## Start server locally
-`mix phx.server`
-
-
-## Setup Database
-
-create database
-`initdb todo_dev`
-
-start database
-`pg_ctl -D todo_dev start`
-
-stop database
-`pg_ctl -D todo_dev stop`
-
-create postgres user that can create databases
-`createuser -d postgres`
-
-Create the storage for the given repository.
-`mix ecto.create`
-
-
-## Generate controller, views, and context
-`mix phx.gen.html Todos Todo_repo todos description:string priority:string is_completed:boolean`
-
-Apply Changes to database
-`mix ecto.migrate`
+[Create with valid description, priority, is_completed](https://github.com/jackc12/todo/blob/49a5ef63d3fd6301c94757f0b3f21bd47ae18233/test/todo/todos_test.exs#L23)
+[Update with valid description, priority, is_completed](https://github.com/jackc12/todo/blob/49a5ef63d3fd6301c94757f0b3f21bd47ae18233/test/todo/todos_test.exs#L36)
+[Create with invalid description, priority, is_completed](https://github.com/jackc12/todo/blob/49a5ef63d3fd6301c94757f0b3f21bd47ae18233/test/todo/todos_test.exs#L32)
+[Update with invalid description, priority, is_completed](https://github.com/jackc12/todo/blob/49a5ef63d3fd6301c94757f0b3f21bd47ae18233/test/todo/todos_test.exs#L46)
