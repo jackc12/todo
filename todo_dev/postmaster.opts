@@ -1,0 +1,1 @@
+/usr/local/Cellar/postgresql@11/11.14/bin/postgres "-D" "todo_dev"

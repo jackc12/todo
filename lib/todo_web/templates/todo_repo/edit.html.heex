@@ -1,0 +1,5 @@
+<h1>Edit Todo repo</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.todo_repo_path(@conn, :update, @todo_repo)) %>
+
+<span><%= link "Back", to: Routes.todo_repo_path(@conn, :index) %></span>

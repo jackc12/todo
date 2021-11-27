@@ -1,0 +1,23 @@
+<h1>Show Todo repo</h1>
+
+<ul>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @todo_repo.description %>
+  </li>
+
+  <li>
+    <strong>Priority:</strong>
+    <%= @todo_repo.priority %>
+  </li>
+
+  <li>
+    <strong>Is completed:</strong>
+    <%= @todo_repo.is_completed %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.todo_repo_path(@conn, :edit, @todo_repo) %></span> |
+<span><%= link "Back", to: Routes.todo_repo_path(@conn, :index) %></span>
