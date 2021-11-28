@@ -19,6 +19,8 @@ Migrate your database with `mix ecto.migrate`
 
 ## UI
 
+(Todo app demo)[http://65.49.81.74:4000/]
+
 Install dependencies with `mix deps.get`
 
 Run locally with `mix phx.server`
