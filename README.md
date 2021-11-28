@@ -1,22 +1,5 @@
 # Todo
 
-## Create database and schema for the following table and fields
-
-Create database with `initdb todo_dev`
-
-Start database with `pg_ctl -D todo_dev start`
-
-Stop database with `pg_ctl -D todo_dev stop`
-
-Create postgres user allowed to create databases with `createuser -d postgres`
-
-Create database with with `mix ecto.create`
-
-Generate controller, views, and context with `mix phx.gen.html Todos Todo_repo todos description:string priority:string is_completed:boolean`
-
-Migrate your database with `mix ecto.migrate`
-
-
 ## UI
 
 [Todo demo](http://65.49.81.74:4000/)
@@ -47,3 +30,20 @@ Run Tests
 [Create with invalid description, priority, is_completed](https://github.com/jackc12/todo/blob/49a5ef63d3fd6301c94757f0b3f21bd47ae18233/test/todo/todos_test.exs#L32)
 
 [Update with invalid description, priority, is_completed](https://github.com/jackc12/todo/blob/49a5ef63d3fd6301c94757f0b3f21bd47ae18233/test/todo/todos_test.exs#L46)
+
+
+## Create database and schema for the following table and fields
+
+Create database with `initdb todo_dev`
+
+Start database with `pg_ctl -D todo_dev start`
+
+Stop database with `pg_ctl -D todo_dev stop`
+
+Create postgres user allowed to create databases with `createuser -d postgres`
+
+Create database with with `mix ecto.create`
+
+Generate controller, views, and context with `mix phx.gen.html Todos Todo_repo todos description:string priority:string is_completed:boolean`
+
+Migrate your database with `mix ecto.migrate`
